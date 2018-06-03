@@ -45,5 +45,6 @@ for mensaje, autor in zip(mensajes, autores):
 
 with open('mensajes.csv', 'w', newline='', encoding='utf-8') as archivocsv:
     campos = ['titulo', 'user', 'cuerpo']
-    writer = csv.DictWriter(archivocsv, fieldnames=campos)
-    writer.writerows(salida)
+    archivo_salida = csv.DictWriter(archivocsv, fieldnames=campos)
+    archivo_salida.writeheader()
+    archivo_salida.writerows(salida)
