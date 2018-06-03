@@ -1,7 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
+import argparse
 
-pagina = requests.get('http://www.retrocomputacion.com/e107_plugins/forum/forum_latest.php?150')
+parser = argparse.ArgumentParser(description='Trae mensajes del foro Retrocomputación.')
+parser.add_argument('mensajes', help = 'Cantidad de mensajes a traer (default:20)', type = int, nargs = '?', default = '20')
+argumentos = parser.parse_args()
+
+URL = 'http://www.retrocomputacion.com/e107_plugins/forum/forum_latest.php?' + str(argumentos.mensajes)
+pagina = requests.get(URL)
 
 sopa = BeautifulSoup(pagina.text,'html.parser')
 
