@@ -43,7 +43,7 @@ for mensaje, autor in zip(mensajes, autores):
 
 # Usando la lista "salida" genero el CSV
 
-with open('mensajes.csv', 'w', newline='', encoding='utf-8') as csvfile:
-    fieldnames = ['titulo', 'user', 'cuerpo']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+with open('mensajes.csv', 'w', newline='', encoding='utf-8') as archivocsv:
+    campos = ['titulo', 'user', 'cuerpo']
+    writer = csv.DictWriter(archivocsv, fieldnames=campos)
     writer.writerows(salida)
